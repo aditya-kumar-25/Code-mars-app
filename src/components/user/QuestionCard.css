@@ -1,0 +1,36 @@
+.question-card{
+
+    background: linear-gradient(#ffffff , #c7dace)
+
+}
+
+.question-card-solved{
+    
+        background: linear-gradient(#ffffff , #25fa04ce)
+}
+
+.hard{
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    padding-inline: 10px;
+    border: solid 1px black;
+}
+
+.easy{
+    background-color: rgb(41, 178, 41);
+    color: white;
+    border-radius: 5px;
+    padding-inline: 10px;
+    border: solid 1px black;
+
+}
+
+.medium{
+    background-color:rgb(255, 255, 0);
+    color: black;
+    border-radius: 5px;
+    padding-inline: 10px;
+    border: solid 1px black;
+
+}

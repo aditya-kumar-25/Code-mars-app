@@ -1,0 +1,18 @@
+.hard{
+    background: linear-gradient(#f90303 , #cb7b7b)
+}
+.total{
+    background: linear-gradient(#ffffff , #c7dace)
+}
+.medium{
+    background: linear-gradient(#ffffff , #d7e148)
+}
+.easy{
+    background: linear-gradient(#269325 , #06fb02)
+}
+
+.progress-card{
+    box-shadow: 2px 2px 10px #00000082;
+    border-radius: 8px;
+    margin-block: 30px
+}

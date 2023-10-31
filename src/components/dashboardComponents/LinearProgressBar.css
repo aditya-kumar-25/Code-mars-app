@@ -1,0 +1,22 @@
+.Easy{
+    background-color: rgb(5, 255, 5) !important;
+    color: black;
+    padding-inline: 4px;
+    padding-block: 2px;
+    border-radius: 5px;
+}
+
+
+.Medium{
+    background-color: rgb(202, 202, 33) !important;
+    padding-inline: 4px;
+    padding-block: 2px;
+    border-radius: 5px;
+}
+
+.Hard{
+    background-color: red !important;
+    padding-inline: 4px;
+    padding-block: 2px;
+    border-radius: 5px;
+}
