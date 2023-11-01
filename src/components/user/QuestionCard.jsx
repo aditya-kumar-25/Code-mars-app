@@ -19,7 +19,7 @@ function QuestionCardSolved({ question, showTags, index }) {
         <p className="font-bold text-xl">{question.title}</p>
         <p className={`${question.difficulty}`}>{question.difficulty}</p>
         {showTags && (
-          <div className="flex gap-2 text-sm text-white">
+          <div className="flex flex-wrap gap-2 text-sm text-white">
             {question.tags.map((obj, index) => {
               return (
                 index < 10 && (
