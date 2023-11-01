@@ -24,7 +24,7 @@ const PiChart = ({ data }) => {
   }, [data]);
 
   return (
-    <div className="rounded-xl bg-white shadow-lg shadow-black p-3 hover:scale-105 transition duration-500">
+    <div className="sm:scale:50 md:scale-100 scale:20  rounded-xl bg-white shadow-lg shadow-black p-3 hover:scale-105 transition duration-500">
       <canvas ref={chartRef} className=""/>
     </div>
   );

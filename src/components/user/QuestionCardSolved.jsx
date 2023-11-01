@@ -12,7 +12,7 @@ function QuestionCardSolved({ question, showTags, index }) {
 
   return (
     <div
-      className={`flex justify-between px-3 py-3 question-card-solved shadow-sm shadow-black border-black border-[2px]`}
+      className={`flex justify-between px-3 py-3 question-card-solved shadow-sm shadow-black border-black border-[1px] rounded-lg`}
     >
       <div className="flex gap-4 items-center flex-wrap">
         <p>{index + 1})</p>

@@ -38,6 +38,7 @@ function ProfileInfo({ user, questionInfo }) {
             },
           }
         );
+        console.log(res);
         setUserHandle(res.data.userHandle);
       } catch (err) {
         console.log(err);
@@ -52,6 +53,12 @@ function ProfileInfo({ user, questionInfo }) {
             import.meta.env.VITE_GET_USER_INFO_API
           }/${user}`
         );
+        const date = new Date(res.data.profile.dob);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+        const formattedDate = `${day}/${month}/${year}`;
+        res.data.profile.dob = formattedDate;
         setData(Object.entries(res.data.profile));
         setIsLoading(false);
       } catch (err) {

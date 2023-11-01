@@ -41,30 +41,26 @@ function Dashboard() {
   }, []);
 
   return (
-    <>
-      {(obj && questionInfo) ? (
-        <div className="bg-mainBg min-h-[95vh] grid grid-cols-4 gap-4 p-2">
-          {questionInfo && (
-            <div className="col-span-1 border-r-[3px] border-black h-[100%]">
-              <ProfileInfo user={user} questionInfo={questionInfo} />
+    <div className="py-4 bg-mainBg">
+      {obj && questionInfo ? (
+        <div className="bg-mainBg min-h-[95vh] grid sm:grid-cols-4 grid-cols-1 gap-4 p-2">
+          <div className="col-span-1 border-black h-[100%]">
+            <ProfileInfo user={user} questionInfo={questionInfo} />
+          </div>
+          <div className="col-span-3">
+            <div className="flex gap-5 py-3 flex-wrap">
+              <PiChart user={user} data={obj} />
+              <ProgressBars data={questionInfo} />
             </div>
-          )}
-          {obj && (
-            <div className="col-span-3">
-              <div className="flex gap-5 py-3 h-[50vh]">
-                <PiChart user={user} data={obj} />
-                <ProgressBars data={questionInfo} />
-              </div>
-              <GlobalRank user={user} />
-              <AllSubmissions user={user} />
+            <div className="mt-4">
+            <AllSubmissions user={user} />
             </div>
-          )}
+          </div>
         </div>
       ) : (
         <Loading />
-      )
-      }
-    </>
+      )}
+    </div>
   );
 }
 

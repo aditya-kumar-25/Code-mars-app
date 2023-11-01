@@ -49,7 +49,7 @@ function ProgressBars({ data }) {
 
   return (
     <div className="bg-navColor text-white rounded-lg shadow-lg shadow-black flex items-center justify-between gap-2 p-3 hover:scale-105 transition duration-[0.5s]">
-      <div className="flex flex-col w-[50%] h-[100%] items-center gap-3">
+      <div className="flex flex-col w-[50%] h-[100%] items-center gap-3 justify-center">
         <CircularProgressbar value={percentage} text={`${percentage}%`} />
         <p className="font-bold text-lg text-green-500"> Total solved</p>
       </div>

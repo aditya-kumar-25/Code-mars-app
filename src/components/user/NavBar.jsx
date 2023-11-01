@@ -128,8 +128,8 @@ const NavBar = ({ isLoggedin, setIsLoggedin }) => {
 
       {isOpen && (
         <div className="md:hidden flex flex-col gap-4">
-          <div>Problems</div>
-          <div>Contact Us</div>
+          <NavLink to={'/problems'}>Problems</NavLink>
+          <NavLink to={'/problems'}>Contact Us</NavLink>
         </div>
       )}
     </div>

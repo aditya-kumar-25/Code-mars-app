@@ -3,9 +3,12 @@ import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Loading from "../user/Loading";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 
 function EditProfile() {
+
+  const navigate = useNavigate();
+
   const [data, setData] = useState(null);
 
   const user = useParams().userHandle;
@@ -29,10 +32,12 @@ function EditProfile() {
         }
       })
       console.log(res);
+      navigate(`/dashboard/${user}`);
       toast.success('Profile updated successfully')
     }catch(err){
-      console.log(err);
+      console.log('here --> ' , err);
       toast.error('Error updating profile')
+      navigate(`/dashboard/${user}`);
     }
 
   };
@@ -45,7 +50,6 @@ function EditProfile() {
         [name]: value,
       };
     });
-    
     console.log(formData);
   };
 
@@ -60,6 +64,7 @@ function EditProfile() {
           }`,
           {
             token: token,
+            userParam:user,
           },
           {
             headers: {
@@ -73,6 +78,8 @@ function EditProfile() {
         console.log(data);
       } catch (err) {
         console.log(err);
+        navigate(`/dashboard/${user}`);
+        toast.error('Error updating profile')
       }
     };
 
@@ -88,12 +95,12 @@ function EditProfile() {
             {data.map((item, index) => {
               return (
                 <div key={index}>
-                  {item[0] != "_id" && item[0] != "__v" && (
+                  {item[0] != "_id" && item[0] != "__v" && item[0] != 'gender' && (
                     <div className="my-2 flex justify-between gap-4 px-3">
                       <label htmlFor={`${item[0]}`} className="font-semibold capitalize">{item[0]}: </label>
                       <input
                         id={`${item[0]}`}
-                        type="text"
+                        type={item[0] == 'dob' ? 'date' : 'text'}
                         name={item[0]}
                         value={formData[item[0]] ? formData[item[0]] : ''}
                         onChange={changeHandler}

@@ -1,8 +1,9 @@
 import React from "react";
 import "./QuestionCard.css";
-import { useNavigate, useParams } from "react-router-dom";
+import { HiDocumentCheck } from "react-icons/hi2";
+import { useNavigate } from "react-router-dom";
 
-function QuestionCard({ question, showTags, index }) {
+function QuestionCardSolved({ question, showTags, index }) {
   const navigate = useNavigate();
 
   const clickHandler = (event) => {
@@ -11,9 +12,9 @@ function QuestionCard({ question, showTags, index }) {
 
   return (
     <div
-      className={`flex justify-between px-3 py-3 question-card shadow-sm shadow-black border-black border-[2px]`}
+      className={`flex justify-between px-3 py-3 question-card shadow-sm shadow-black border-black border-[1px] rounded-lg`}
     >
-      <div className="flex gap-4 items-center">
+      <div className="flex gap-4 items-center flex-wrap">
         <p>{index + 1})</p>
         <p className="font-bold text-xl">{question.title}</p>
         <p className={`${question.difficulty}`}>{question.difficulty}</p>
@@ -36,8 +37,8 @@ function QuestionCard({ question, showTags, index }) {
       </div>
       <div className="flex justify-center items-center">
         <button
-          className="bg-[#3a9b33] text-white px-3 py-1 border-[2px] border-black rounded-2xl font-[600] hover:bg-[#2a6826] ml-2"
           onClick={clickHandler}
+          className="bg-[#3a9b33] text-white px-3 py-1 rounded-2xl font-[600] hover:bg-[#2a6826] border-[2px] border-black ml-2"
         >
           Solve
         </button>
@@ -46,4 +47,4 @@ function QuestionCard({ question, showTags, index }) {
   );
 }
 
-export default QuestionCard;
+export default QuestionCardSolved;
