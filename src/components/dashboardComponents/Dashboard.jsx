@@ -6,17 +6,17 @@ import "./Dashboard.css";
 import ProfileInfo from "./ProfileInfo";
 import PiChart from "./PiChart";
 import GlobalRank from "./GlobalRank";
-import HeatMap from "./HeatMap";
 import AllSubmissions from "./AllSubmissions";
 import Cookies from "js-cookie";
 import ProgressBars from "./ProgressBars";
+import Loading from "../user/Loading";
 
 function Dashboard() {
   const user = useParams("userHandle").userHandle;
 
   const [obj, setObj] = useState(null);
 
-  const [questionInfo , setQuestionInfo] = useState(null);
+  const [questionInfo, setQuestionInfo] = useState(null);
 
   useEffect(() => {
     const fetchQuestionInfo = async () => {
@@ -41,22 +41,30 @@ function Dashboard() {
   }, []);
 
   return (
-    <div className="bg-mainBg min-h-[95vh] grid grid-cols-4 gap-4 p-2">
-      {questionInfo && <div className="col-span-1 border-r-[3px] border-black h-[100%]">
-        <ProfileInfo user={user} questionInfo={questionInfo} />
-      </div>}
-      {obj && (
-        <div className="col-span-3">
-          <div className="flex gap-5 py-3 h-[50vh]">
-          <PiChart user={user} data={obj} />
-          <ProgressBars data={questionInfo} />
-          </div>
-          <GlobalRank user={user} />
-          <HeatMap user={user} />
-          <AllSubmissions user={user} />
+    <>
+      {(obj && questionInfo) ? (
+        <div className="bg-mainBg min-h-[95vh] grid grid-cols-4 gap-4 p-2">
+          {questionInfo && (
+            <div className="col-span-1 border-r-[3px] border-black h-[100%]">
+              <ProfileInfo user={user} questionInfo={questionInfo} />
+            </div>
+          )}
+          {obj && (
+            <div className="col-span-3">
+              <div className="flex gap-5 py-3 h-[50vh]">
+                <PiChart user={user} data={obj} />
+                <ProgressBars data={questionInfo} />
+              </div>
+              <GlobalRank user={user} />
+              <AllSubmissions user={user} />
+            </div>
+          )}
         </div>
-      )}
-    </div>
+      ) : (
+        <Loading />
+      )
+      }
+    </>
   );
 }
 
