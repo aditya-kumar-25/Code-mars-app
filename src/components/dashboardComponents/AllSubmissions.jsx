@@ -21,7 +21,7 @@ function AllSubmissions({ user }) {
           }/${user}`
         );
         setData(res.data?.submissions);
-        setTotalPages(max(1 , Math.ceil(res.data.submissions.length / 5)));
+        setTotalPages(Math.max(1 , Math.ceil(res.data.submissions.length / 5)));
         setRange([0, Math.min(4, res.data.submissions.length - 1)]);
       } catch (err) {
         console.log(err);
