@@ -27,15 +27,15 @@ function ProblemStatement({ question }) {
         </div>
       </div>
 
-      <div className="font-[600]">{description}</div>
+      <div className="font-[600] whitespace-pre-wrap">{description}</div>
 
       <p>Sample input: </p>
 
-      <div>{sample}</div>
+      <div className=" whitespace-pre-wrap">{sample}</div>
 
       <p>Sample Output: </p>
 
-      <div>{sampleAnswer}</div>
+      <div className=" whitespace-pre-wrap">{sampleAnswer}</div>
     </div>
   );
 }
